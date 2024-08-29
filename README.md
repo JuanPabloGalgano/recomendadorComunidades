@@ -6,7 +6,7 @@
 
 ## Documentacion
 * La documentacion de la API se puede encontrar en http://localhost:5000/apidocs/ una vez la API esta en ejecucion. Esto se realizo con la libreria flasgger de python para poder generar desde el mismo codigo la documentacion y la ruta donde se encuentra
-* Tambien se puede visualizar desde https://app.swaggerhub.com/apis/JGALGANO/RecomendadorComunidades/1.0.0#/
+* Tambien se puede visualizar desde https://app.swaggerhub.com/apis/JGALGANO/RecomendadorComunidades/1.0.0
   
 ## Uso
 A continuacion, se muestra un ejemplo basico de la utilizacion de la APi
