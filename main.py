@@ -9,8 +9,70 @@ Swagger(app)
 
 conexion = MySQL(app)
 
-      
-@app.route('/recomendar', methods=['GET'])
+@app.route('/comunidades', methods=['GET'])
+@swag_from({
+    'responses': {
+        200: {
+            'description': 'Se muestran las comunidades cargadas',
+            'examples': {
+                'application/json': {
+                    'Comunidades cerca de tu locacion': [
+                        {
+                            'nombre': 'Institución 1',
+                            'direccion': 'Calle Falsa 123'
+                        },
+                        {
+                            'nombre': 'Institución 2',
+                            'direccion': 'Calle Falsa 8923'
+                        },
+                        {
+                            'nombre': 'Institución 3',
+                            'direccion': 'Calle Falsa 2048'
+                        }
+                    ]
+                }
+            }
+        },
+        500: {
+            'description': 'Error interno del servidor',
+            'content': {
+                'application/json': {
+                    'schema': {
+                        'type': 'object',
+                        'properties': {
+                            'mensaje': {
+                                'type': 'string',
+                                'example': 'Error :('
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+})
+def listar_entidades():
+    try:
+        cursor = conexion.connection.cursor()
+        sql = "SELECT nombre, direccion, latitud, longitud FROM instituciones"
+        cursor.execute(sql)
+        datos = cursor.fetchall()
+        
+        entidades = []
+        for dato in datos:
+            entidad = {
+                'nombre': dato[0],
+                'direccion': dato[1],
+                'latitud': dato[2],
+                'longitud': dato[3]
+            }
+            entidades.append(entidad)
+        
+        return jsonify(entidades)
+    except Exception as ex:
+        return jsonify({'mensaje': "Error :("}), 500
+
+@app.route('/recomendar', methods = ['GET'])
 @swag_from({'parameters': [
         {
             'name': 'lat',
@@ -60,22 +122,22 @@ def recomendar_lugares():
         # Conectar a la base de datos
         cursor = conexion.connection.cursor()
 
-        # Consulta para obtener todas las instituciones
+        # Consulta para obtener todas las comunidades
         query = "SELECT nombre, direccion, latitud, longitud FROM instituciones"
         cursor.execute(query)
-        instituciones = cursor.fetchall()
+        comunidades = cursor.fetchall()
 
-        # Filtrar instituciones dentro del radio
+        # Filtrar comunidades dentro del radio
         ubicacion_actual = (lat, lon)
-        instituciones_en_radio = []
+        comunidades_en_radio = []
 
-        for institucion in instituciones:
-            ubicacion_institucion = (institucion['latitud'], institucion['longitud'])
-            distancia = geodesic(ubicacion_actual, ubicacion_institucion).kilometers
+        for comunidad in comunidades:
+            ubicacion_comunidad = (comunidad['latitud'], comunidad['longitud'])
+            distancia = geodesic(ubicacion_actual, ubicacion_comunidad).kilometers
             if distancia <= radio:
-                instituciones_en_radio.append((institucion['nombre'], institucion['direccion']))
+                comunidades_en_radio.append((comunidad['nombre'], comunidad['direccion']))
 
-        return jsonify({'Comunidades cerca de tu locacion': instituciones_en_radio})
+        return jsonify({'Comunidades cerca de tu locacion': comunidades_en_radio})
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
