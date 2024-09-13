@@ -9,7 +9,12 @@
 * Tambien se puede visualizar desde https://app.swaggerhub.com/apis/JGALGANO/RecomendadorComunidades/1.0.0
   
 ## Uso
-A continuacion, se muestra un ejemplo basico de la utilizacion de la APi
+Para poder utilizar la API es necesario seguir los siguientes pasos
+1. Clonarse el repositorio
+2. Instalarse las librerias especificadas en requirements.txt
+3. Modificar el archivo config.py con los datos propios
+4. Ejecutar el archivo sript_bd.py para generar la base de datos local
+5. Ejecutar el archivo main.py para levantar la API
 
 ```http
 GET http://localhost:5000/recomendar?lat=-34.6037&lon=-58.3816&radio=5
