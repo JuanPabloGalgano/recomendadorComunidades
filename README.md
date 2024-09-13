@@ -11,7 +11,7 @@
 ## Uso
 Para poder utilizar la API es necesario seguir los siguientes pasos
 1. Clonarse el repositorio
-2. Instalarse las librerias especificadas en requirements.txt
+2. Instalarse las librerias especificadas con el comando pip install -r requirements.txt
 3. Modificar el archivo config.py con los datos propios
 4. Ejecutar el archivo sript_bd.py para generar la base de datos local
 5. Ejecutar el archivo main.py para levantar la API
