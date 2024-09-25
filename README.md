@@ -17,6 +17,8 @@ Para poder utilizar la API es necesario seguir los siguientes pasos
 4. Ejecutar el archivo sript_bd.py para generar la base de datos local con el comando python sript_bd 
 5. Ejecutar el archivo main.py para levantar la API con el comando python main.py
 
+extra. un ejemplo de uso es con las coordenadas lat=-34.6037 y lon=-58.3816 y radio=5
+
 ## Ejemplo de respuesta
 ```http
 GET http://localhost:5000/recomendar?lat=-34.6037&lon=-58.3816&radio=5
