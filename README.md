@@ -11,12 +11,12 @@
 ## Uso
 Para poder utilizar la API es necesario seguir los siguientes pasos
 
-0. Verificar que se tiene instalado python (si no es asi se peude instalar desde la web oficial https://python.org/downloads/)
+0. Verificar que se tiene instalado python (si no es asi se puede instalar desde la web oficial https://python.org/downloads/)
 1. Clonarse el repositorio
 2. Instalarse las librerias especificadas con el comando pip install -r requirements.txt
 3. Modificar el archivo config.py con los datos propios
-4. Ejecutar el archivo sript_bd.py para generar la base de datos local con el comando python sript_bd 
-5. Ejecutar el archivo main.py para levantar la API con el comando python main.py
+4. Ejecutar el archivo sript_bd.py para generar la base de datos local ingresndo en la terminal python sript_bd 
+5. Ejecutar el archivo main.py para levantar la API ingresando en la terminal python main.py
 
 extra. un ejemplo de uso es con las coordenadas lat=-34.6037 y lon=-58.3816 y radio=5
 
