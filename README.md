@@ -10,6 +10,7 @@
   
 ## Uso
 Para poder utilizar la API es necesario seguir los siguientes pasos
+
 0. Verificar que se tiene instalado python (si no es asi se peude instalar desde la web oficial https://python.org/downloads/)
 1. Clonarse el repositorio
 2. Instalarse las librerias especificadas con el comando pip install -r requirements.txt
