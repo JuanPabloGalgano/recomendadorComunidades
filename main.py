@@ -54,7 +54,7 @@ conexion = MySQL(app)
 def listar_entidades():
     try:
         cursor = conexion.connection.cursor()
-        sql = "SELECT nombre, direccion, latitud, longitud FROM instituciones"
+        sql = "SELECT nombre, direccion, latitud, longitud FROM comunidades"
         cursor.execute(sql)
         datos = cursor.fetchall()
         
